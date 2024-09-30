@@ -25,6 +25,8 @@ See the README.md files inside the each microservices directory:
 - marketing
 - insurance
 - payment
+- salesdashboard
+- customer
 
 
 ## Run API Gateway (Spring Gateway)
@@ -53,6 +55,12 @@ mvn spring-boot:run
 - payment
 ```
  http :8088/payments id="id" amount="amount" product="product" customerId="customerId" paymentMethod="paymentMethod" 
+```
+- salesdashboard
+```
+```
+- customer
+```
 ```
 
 

@@ -37,7 +37,7 @@
                     text
                     @click="save"
                 >
-                저장
+                    스펙비교저장
                 </v-btn>
                 <v-btn
                     color="primary"

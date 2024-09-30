@@ -37,5 +37,12 @@ public class SpecComparation {
         );
         return specComparationRepository;
     }
+
+    public void 스펙비교저장() {
+        //implement business logic here:
+
+        SpecCompared specCompared = new SpecCompared(this);
+        specCompared.publishAfterCommit();
+    }
 }
 //>>> DDD / Aggregate Root

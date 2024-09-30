@@ -34,6 +34,8 @@ jobs:
           mvn clean package -f ./marketing/pom.xml
           mvn clean package -f ./insurance/pom.xml
           mvn clean package -f ./payment/pom.xml
+          mvn clean package -f ./salesdashboard/pom.xml
+          mvn clean package -f ./customer/pom.xml
 
       - name: Docker Build and push for Spec
         uses: docker/build-push-action@v4
@@ -84,4 +86,24 @@ jobs:
           tags: |
             ghcr.io/${{ github.repository }}/payment:latest
             ghcr.io/${{ github.repository }}/payment:${{ github.ref_name }}
+            
+      - name: Docker Build and push for Salesdashboard
+        uses: docker/build-push-action@v4
+        with:
+          context: ./salesdashboard
+          platforms: linux/amd64,linux/arm64
+          push: true
+          tags: |
+            ghcr.io/${{ github.repository }}/salesdashboard:latest
+            ghcr.io/${{ github.repository }}/salesdashboard:${{ github.ref_name }}
+            
+      - name: Docker Build and push for Customer
+        uses: docker/build-push-action@v4
+        with:
+          context: ./customer
+          platforms: linux/amd64,linux/arm64
+          push: true
+          tags: |
+            ghcr.io/${{ github.repository }}/customer:latest
+            ghcr.io/${{ github.repository }}/customer:${{ github.ref_name }}
             

@@ -93,3 +93,31 @@ services:
       - ./payment:/usr/src
       - ./maven-repo:/root/.m2
       
+  salesdashboard:
+    depends_on: 
+      - kafka
+    image: adoptopenjdk/maven-openjdk11:latest
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    command: mvn spring-boot:run
+    ports:
+      - 8087:8087
+    working_dir: /usr/src
+    volumes:
+      - ./salesdashboard:/usr/src
+      - ./maven-repo:/root/.m2
+      
+  customer:
+    depends_on: 
+      - kafka
+    image: adoptopenjdk/maven-openjdk11:latest
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    command: mvn spring-boot:run
+    ports:
+      - 8088:8088
+    working_dir: /usr/src
+    volumes:
+      - ./customer:/usr/src
+      - ./maven-repo:/root/.m2
+      
