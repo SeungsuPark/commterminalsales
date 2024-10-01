@@ -96,7 +96,7 @@
                     <v-card-text>
                         <div>
                             <String label="ProductId" v-model="selectedRow.productId" :editMode="true"/>
-                            < label="Options" v-model="selectedRow.options" :editMode="true"/>
+                            <String label="Options" v-model="selectedRow.options" :editMode="true"/>
                             <String label="CustomerId" v-model="selectedRow.customerId" :editMode="true"/>
                             <StringDetailGrid label="Options" offline v-model="selectedRow.options" :editMode="true"/>
                             <v-divider class="border-opacity-100 my-divider"></v-divider>
@@ -123,6 +123,7 @@ import { useTheme } from 'vuetify';
 import BaseGrid from '../base-ui/BaseGrid.vue'
 import SpecComparation from '../SpecComparation.vue'
 import String from '../primitives/String.vue'
+import String from '../primitives/String.vue'
 import StringDetailGrid from './StringDetailGrid.vue'
 
 export default {
@@ -130,6 +131,7 @@ export default {
     mixins:[BaseGrid],
     components:{
         SpecComparation,
+        String,
         String,
         StringDetailGrid,
     },

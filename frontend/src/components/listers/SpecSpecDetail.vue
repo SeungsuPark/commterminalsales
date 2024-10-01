@@ -17,6 +17,7 @@
             <div>
                 <String label="PhoneType" v-model="item.phoneType" :editMode="editMode" @change="change" />
             </div>
+            <Photo offline label="Image" v-model="item.image" :editMode="false" @change="change" />
         </v-card-text>
 
         <v-card-actions>

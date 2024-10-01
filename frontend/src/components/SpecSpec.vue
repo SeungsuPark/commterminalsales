@@ -20,6 +20,7 @@
             <String label="Manufacturer" v-model="value.manufacturer" :editMode="editMode" :inputUI="''"/>
             <String label="PhoneColor" v-model="value.phoneColor" :editMode="editMode" :inputUI="''"/>
             <String label="PhoneType" v-model="value.phoneType" :editMode="editMode" :inputUI="''"/>
+            <Photo offline label="Image" v-model="value.image" :editMode="editMode" @change="change"/>
         </v-card-text>
 
         <v-card-actions style="background-color: white;">
@@ -80,10 +81,12 @@
 <script>
     const axios = require('axios').default;
 
+    import Photo from './vo/Photo.vue';
 
     export default {
         name: 'SpecSpec',
         components:{
+            Photo,
         },
         props: {
             value: [Object, String, Number, Boolean, Array],

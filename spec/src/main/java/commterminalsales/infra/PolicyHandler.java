@@ -20,6 +20,9 @@ public class PolicyHandler {
     @Autowired
     SpecComparationRepository specComparationRepository;
 
+    @Autowired
+    SpecRepository specRepository;
+
     @StreamListener(KafkaProcessor.INPUT)
     public void whatever(@Payload String eventString) {}
 }

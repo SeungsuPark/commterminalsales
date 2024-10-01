@@ -71,6 +71,7 @@
                     { text: "manufacturer", value: "manufacturer" },
                     { text: "phoneColor", value: "phoneColor" },
                     { text: "phoneType", value: "phoneType" },
+                    { text: "image", value: "image" },
                 ],
             spec : [],
             newValue: {},
@@ -92,6 +93,7 @@
                 'manufacturer': '',
                 'phoneColor': '',
                 'phoneType': '',
+                'image': {},
             }
         },
         methods: {

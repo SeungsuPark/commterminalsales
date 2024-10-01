@@ -7,6 +7,8 @@ Vue.use(Router);
 
 import SpecSpecComparationManager from "./components/listers/SpecSpecComparationCards"
 import SpecSpecComparationDetail from "./components/listers/SpecSpecComparationDetail"
+import SpecSpecManager from "./components/listers/SpecSpecCards"
+import SpecSpecDetail from "./components/listers/SpecSpecDetail"
 
 import OrderOrderManager from "./components/listers/OrderOrderCards"
 import OrderOrderDetail from "./components/listers/OrderOrderDetail"
@@ -40,6 +42,16 @@ export default new Router({
                 path: '/specs/specComparations/:id',
                 name: 'SpecSpecComparationDetail',
                 component: SpecSpecComparationDetail
+            },
+            {
+                path: '/specs/specs',
+                name: 'SpecSpecManager',
+                component: SpecSpecManager
+            },
+            {
+                path: '/specs/specs/:id',
+                name: 'SpecSpecDetail',
+                component: SpecSpecDetail
             },
 
             {

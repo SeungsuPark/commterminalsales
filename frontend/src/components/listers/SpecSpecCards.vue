@@ -108,6 +108,7 @@
                 'manufacturer': '',
                 'phoneColor': '',
                 'phoneType': '',
+                'image': {},
             }
         },
         methods:{

@@ -12,7 +12,7 @@ spring:
         - id: spec
           uri: http://localhost:8082
           predicates:
-            - Path=/specComparations/**, 
+            - Path=/specComparations/**, /specs/**, 
         - id: order
           uri: http://localhost:8083
           predicates:
@@ -64,7 +64,7 @@ spring:
         - id: spec
           uri: http://spec:8080
           predicates:
-            - Path=/specComparations/**, 
+            - Path=/specComparations/**, /specs/**, 
         - id: order
           uri: http://order:8080
           predicates:

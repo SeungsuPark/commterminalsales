@@ -1,4 +1,5 @@
 import specComparationYaml from "./specComparation-openapi.yaml";
+import specYaml from "./spec-openapi.yaml";
 import orderYaml from "./order-openapi.yaml";
 import retargettingYaml from "./retargetting-openapi.yaml";
 import insuranceSubscriptionYaml from "./insuranceSubscription-openapi.yaml";
@@ -11,6 +12,9 @@ let apiSpec = "";
 
 let specComparationSpec = YAML.stringify(specComparationYaml);
 apiSpec += specComparationSpec;
+
+let specSpec = YAML.stringify(specYaml);
+apiSpec += specSpec;
 
 let orderSpec = YAML.stringify(orderYaml);
 apiSpec += orderSpec;

@@ -25,6 +25,12 @@ public class Spec {
 
     private String phoneType;
 
+    @Embedded
+    private Photo image;
+
+    @PostPersist
+    public void onPostPersist() {}
+
     public static SpecRepository repository() {
         SpecRepository specRepository = SpecApplication.applicationContext.getBean(
             SpecRepository.class

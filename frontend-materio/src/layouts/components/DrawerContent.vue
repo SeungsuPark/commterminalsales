@@ -14,6 +14,12 @@ import {
                 to: '/specComparations',
             }"
         />
+        <VerticalNavLink
+            :item="{
+                title: '단말기스펙',
+                to: '/specs',
+            }"
+        />
         <VerticalNavSectionTitle :item="{ heading: 'Order' }" />
         <VerticalNavLink
             :item="{
