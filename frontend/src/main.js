@@ -46,6 +46,7 @@ Vue.use(Managing);
 const pluralCaseList = []
 
 pluralCaseList.push( {plural: "specs/specComparations", pascal: "SpecSpecComparation"} )
+pluralCaseList.push( {plural: "specs/specs", pascal: "SpecSpec"} )
 
 pluralCaseList.push( {plural: "orders/orders", pascal: "OrderOrder"} )
 

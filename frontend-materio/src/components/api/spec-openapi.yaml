@@ -1,3 +1,4 @@
+---
 openapi: 3.0.2
 info:
   title: Spec
@@ -5,19 +6,19 @@ info:
   description: API definition of spec
   contact:
     name: creator's name
-    url: http://creator.homepage.address
+    url: 'http://creator.homepage.address'
     email: creator@creator.com
   license:
     name: MIT License
-    url: https://opensource.org/licenses/MIT
+    url: 'https://opensource.org/licenses/MIT'
 paths:
   /specs:
     summary: Global operations on specs
     get:
       tags:
-      - specs
+        - specs
       responses:
-        "200":
+        '200':
           content:
             application/json:
               schema:
@@ -27,12 +28,12 @@ paths:
               examples:
                 specs_json:
                   value:
-                  -
-                    id: 1
-                    spec: A string
-                    manufacturer: A string
-                    phoneColor: A string
-                    phoneType: A string
+                    - id: 1
+                      spec: A string
+                      manufacturer: A string
+                      phoneColor: A string
+                      phoneType: A string
+                      image: value
           description: Get list of specs
       operationId: GetSpec
       summary: Get list of specs
@@ -43,58 +44,61 @@ paths:
             schema:
               $ref: '#/components/schemas/Spec'
             examples:
-              1:
+              '1':
                 value:
                   id: 1
                   spec: A string
                   manufacturer: A string
                   phoneColor: A string
                   phoneType: A string
+                  image: value
         required: true
       responses:
-        "200":
+        '200':
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Spec'
               examples:
-                1:
+                '1':
                   value:
                     id: 1
                     spec: A string
                     manufacturer: A string
                     phoneColor: A string
                     phoneType: A string
+                    image: value
           description: Changed Spec
       operationId: Post Spec
-      summary: Post Spec        
-  /specs/{id}:
+      summary: Post Spec
+  '/specs/{id}':
     summary: Specific operation on specs
     get:
       parameters:
-      - examples:
-          value:
-            value: value
-        name: id
-        description: Spec name
-        schema:
-          type: string
-        in: path
-        required: true
+        - examples:
+            '1':
+              value: 1
+          name: id
+          description: Spec name
+          schema:
+            type: integer
+          in: path
+          required: true
       responses:
-        "200":
+        '200':
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Spec'
               examples:
-                1:
+                '1':
                   value:
                     id: 1
                     spec: A string
                     manufacturer: A string
                     phoneColor: A string
                     phoneType: A string
+                    image: value
           description: specs with specified id
       operationId: GetSpecById
       summary: Get Spec by id
@@ -106,48 +110,50 @@ paths:
             schema:
               $ref: '#/components/schemas/Spec'
             examples:
-              1:
+              '1':
                 value:
                   id: 1
                   spec: A string
                   manufacturer: A string
                   phoneColor: A string
                   phoneType: A string
+                  image: value
         required: true
       parameters:
-      - examples:
-          1:
-            value: 1
-        name: 
-        description: Spec name
-        schema:
-          type: string
-        in: path
-        required: true
+        - examples:
+            '1':
+              value: 1
+          name: id
+          description: Spec name
+          schema:
+            type: integer
+          in: path
+          required: true
       responses:
-        "200":
+        '200':
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Spec'
               examples:
-                1:
+                '1':
                   value:
                     id: 1
                     spec: A string
                     manufacturer: A string
                     phoneColor: A string
                     phoneType: A string
+                    image: value
           description: Changed Spec
       operationId: PatchSpec
       summary: Patch existing Spec
     parameters:
-    - name: id
-      description: Spec id
-      schema:
-        type: string
-      in: path
-      required: true
+      - name: id
+        description: Spec id
+        schema:
+          type: integer
+        in: path
+        required: true
 components:
   schemas:
     Spec:
@@ -169,6 +175,9 @@ components:
           type: string
         phoneType:
           description: phoneType of this Spec
+          type: string
+        image:
+          description: image of this Spec
           type: string
 tags:
   - name: Spec

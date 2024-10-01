@@ -37,6 +37,10 @@ export default {
           link: "/specComparations",
       },
       {
+          text: "단말기스펙",
+          link: "/specs",
+      },
+      {
           text: "Order",
           link: "/orders",
       },

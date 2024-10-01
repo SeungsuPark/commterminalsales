@@ -99,7 +99,7 @@
                             <String label="Product" v-model="selectedRow.product" :editMode="true"/>
                             <String label="CustomerId" v-model="selectedRow.customerId" :editMode="true"/>
                             <String label="PaymentMethod" v-model="selectedRow.paymentMethod" :editMode="true"/>
-                            <BigDecimal offline label="Amount" v-model="selectedRow.amount" :editMode="true"/>
+                            <Number offline label="Amount" v-model="selectedRow.amount" :editMode="true"/>
                             <v-divider class="border-opacity-100 my-divider"></v-divider>
                             <v-layout row justify-end>
                                 <v-btn
@@ -123,7 +123,6 @@ import { ref } from 'vue';
 import { useTheme } from 'vuetify';
 import BaseGrid from '../base-ui/BaseGrid.vue'
 import Payment from '../Payment.vue'
-import BigDecimal from '../BigDecimal.vue'
 import String from '../primitives/String.vue'
 
 export default {
@@ -131,7 +130,6 @@ export default {
     mixins:[BaseGrid],
     components:{
         Payment,
-        BigDecimal,
         String,
     },
     data: () => ({

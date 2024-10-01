@@ -30,6 +30,7 @@
                         <th>Manufacturer</th>
                         <th>PhoneColor</th>
                         <th>PhoneType</th>
+                        <th>Image</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -39,6 +40,9 @@
                             <td class="whitespace-nowrap" label="Manufacturer">{{ val.manufacturer }}</td>
                             <td class="whitespace-nowrap" label="PhoneColor">{{ val.phoneColor }}</td>
                             <td class="whitespace-nowrap" label="PhoneType">{{ val.phoneType }}</td>
+                            <td class="whitespace-nowrap" label="Image">
+                                <Photo :editMode="false" :inList="true" v-model="val.image"></Photo>
+                            </td>
                             <Icon style="margin-top: 15px;" icon="mi:delete" @click="deleteRow(val)" />
                         </tr>
                     </tbody>
@@ -101,6 +105,7 @@
                             <String label="Manufacturer" v-model="selectedRow.manufacturer" :editMode="true"/>
                             <String label="PhoneColor" v-model="selectedRow.phoneColor" :editMode="true"/>
                             <String label="PhoneType" v-model="selectedRow.phoneType" :editMode="true"/>
+                            <Photo offline label="Image" v-model="selectedRow.image" :editMode="true"/>
                             <v-divider class="border-opacity-100 my-divider"></v-divider>
                             <v-layout row justify-end>
                                 <v-btn
@@ -125,6 +130,7 @@ import { useTheme } from 'vuetify';
 import BaseGrid from '../base-ui/BaseGrid.vue'
 import Spec from '../Spec.vue'
 import String from '../primitives/String.vue'
+import Photo from '../vo/Photo.vue'
 import GetSpecDetail from '../GetSpecDetail.vue'
 
 export default {
@@ -133,6 +139,7 @@ export default {
     components:{
         Spec,
         String,
+        Photo,
         GetSpecDetail,
     },
     data: () => ({

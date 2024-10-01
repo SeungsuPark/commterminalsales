@@ -11,4 +11,5 @@ public class Spec {
     private String manufacturer;
     private String phoneColor;
     private String phoneType;
+    private Object image;
 }

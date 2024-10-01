@@ -45,6 +45,17 @@
                         단말기 스펙 비교
                     </v-list-item>
 
+                    <v-list-item
+                        class="px-2"
+                        key="specs"
+                        to="/specs/specs"
+                        @click="changeUrl()"
+                        color="primary"
+                        style="font-weight:700;"
+                    >
+                        단말기스펙
+                    </v-list-item>
+
 
                     <v-list-item
                         class="px-2"
@@ -201,6 +212,13 @@ export default {
                 description: '', 
                 key: 'specComparations', 
                 route: '/specs/specComparations',
+                ImageUrl: '',
+            },
+            { 
+                title: '단말기스펙', 
+                description: '', 
+                key: 'specs', 
+                route: '/specs/specs',
                 ImageUrl: '',
             },
             { 

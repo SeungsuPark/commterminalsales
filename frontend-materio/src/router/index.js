@@ -12,6 +12,10 @@ const router = createRouter({
       component: () => import('../components/ui/SpecComparationGrid.vue'),
     },
     {
+      path: '/specs',
+      component: () => import('../components/ui/SpecGrid.vue'),
+    },
+    {
       path: '/orders',
       component: () => import('../components/ui/OrderGrid.vue'),
     },
