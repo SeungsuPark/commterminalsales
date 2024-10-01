@@ -17,7 +17,29 @@ import org.springframework.stereotype.Service;
 @Transactional
 public class PolicyHandler {
 
+    @Autowired
+    CustomerRepository customerRepository;
+
+    @Autowired
+    MessageRepository messageRepository;
+
     @StreamListener(KafkaProcessor.INPUT)
     public void whatever(@Payload String eventString) {}
+
+    @StreamListener(
+        value = KafkaProcessor.INPUT,
+        condition = "headers['type']=='DiscountPolicyActivated'"
+    )
+    public void wheneverDiscountPolicyActivated_Alert(
+        @Payload DiscountPolicyActivated discountPolicyActivated
+    ) {
+        DiscountPolicyActivated event = discountPolicyActivated;
+        System.out.println(
+            "\n\n##### listener Alert : " + discountPolicyActivated + "\n\n"
+        );
+
+        // Sample Logic //
+        Message.alert(event);
+    }
 }
 //>>> Clean Arch / Inbound Adaptor

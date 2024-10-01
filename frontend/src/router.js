@@ -21,6 +21,10 @@ import PaymentPaymentManager from "./components/listers/PaymentPaymentCards"
 import PaymentPaymentDetail from "./components/listers/PaymentPaymentDetail"
 
 
+import CustomerCustomerManager from "./components/listers/CustomerCustomerCards"
+import CustomerCustomerDetail from "./components/listers/CustomerCustomerDetail"
+import CustomerMessageManager from "./components/listers/CustomerMessageCards"
+import CustomerMessageDetail from "./components/listers/CustomerMessageDetail"
 
 
 export default new Router({
@@ -83,6 +87,26 @@ export default new Router({
             },
 
 
+            {
+                path: '/customers/customers',
+                name: 'CustomerCustomerManager',
+                component: CustomerCustomerManager
+            },
+            {
+                path: '/customers/customers/:id',
+                name: 'CustomerCustomerDetail',
+                component: CustomerCustomerDetail
+            },
+            {
+                path: '/customers/messages',
+                name: 'CustomerMessageManager',
+                component: CustomerMessageManager
+            },
+            {
+                path: '/customers/messages/:id',
+                name: 'CustomerMessageDetail',
+                component: CustomerMessageDetail
+            },
 
 
 

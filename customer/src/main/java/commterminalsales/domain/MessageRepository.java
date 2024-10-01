@@ -9,13 +9,6 @@ import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 //<<< PoEAA / Repository
-@RepositoryRestResource(collectionResourceRel = "customers", path = "customers")
-public interface CustomerRepository
-    extends PagingAndSortingRepository<Customer, String> {
-    @Query(
-        value = "select customer " +
-        "from Customer customer " +
-        "where(:id is null or customer.id like %:id%)"
-    )
-    Customer findByGetCustomer(String id);
-}
+@RepositoryRestResource(collectionResourceRel = "messages", path = "messages")
+public interface MessageRepository
+    extends PagingAndSortingRepository<Message, Long> {}
