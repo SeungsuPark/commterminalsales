@@ -1,0 +1,157 @@
+openapi: 3.0.2
+info:
+  title: Message
+  version: 0.0.1
+  description: API definition of message
+  contact:
+    name: creator's name
+    url: http://creator.homepage.address
+    email: creator@creator.com
+  license:
+    name: MIT License
+    url: https://opensource.org/licenses/MIT
+paths:
+  /messages:
+    summary: Global operations on messages
+    get:
+      tags:
+      - messages
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Message'
+              examples:
+                messages_json:
+                  value:
+                  -
+                    id: 1
+                    message: A string
+                    customerId: A string
+          description: Get list of messages
+      operationId: GetMessage
+      summary: Get list of messages
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Message'
+            examples:
+              1:
+                value:
+                  id: 1
+                  message: A string
+                  customerId: A string
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Message'
+              examples:
+                1:
+                  value:
+                    id: 1
+                    message: A string
+                    customerId: A string
+          description: Changed Message
+      operationId: Post Message
+      summary: Post Message        
+  /messages/{id}:
+    summary: Specific operation on messages
+    get:
+      parameters:
+      - examples:
+          1:
+            value: 1
+        name: id
+        description: Message name
+        schema:
+          type: integer
+        in: path
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Message'
+              examples:
+                1:
+                  value:
+                    id: 1
+                    message: A string
+                    customerId: A string
+          description: messages with specified id
+      operationId: GetMessageById
+      summary: Get Message by id
+      description: Get Message by id
+    patch:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Message'
+            examples:
+              1:
+                value:
+                  id: 1
+                  message: A string
+                  customerId: A string
+        required: true
+      parameters:
+      - examples:
+          1:
+            value: 1
+        name: id
+        description: Message name
+        schema:
+          type: integer
+        in: path
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Message'
+              examples:
+                1:
+                  value:
+                    id: 1
+                    message: A string
+                    customerId: A string
+          description: Changed Message
+      operationId: PatchMessage
+      summary: Patch existing Message
+    parameters:
+    - name: id
+      description: Message id
+      schema:
+        type: integer
+      in: path
+      required: true
+components:
+  schemas:
+    Message:
+      title: Root Type for Message
+      description: The root of the Message type's schema.
+      type: object
+      properties:
+        id:
+          description: id of this Message
+          type: integer
+        message:
+          description: message of this Message
+          type: string
+        customerId:
+          description: customerId of this Message
+          type: string
+tags:
+  - name: Message
+    description: Message resource

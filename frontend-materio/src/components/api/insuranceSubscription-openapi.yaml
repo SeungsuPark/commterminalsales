@@ -1,0 +1,166 @@
+openapi: 3.0.2
+info:
+  title: InsuranceSubscription
+  version: 0.0.1
+  description: API definition of insuranceSubscription
+  contact:
+    name: creator's name
+    url: http://creator.homepage.address
+    email: creator@creator.com
+  license:
+    name: MIT License
+    url: https://opensource.org/licenses/MIT
+paths:
+  /insuranceSubscriptions:
+    summary: Global operations on insuranceSubscriptions
+    get:
+      tags:
+      - insuranceSubscriptions
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/InsuranceSubscription'
+              examples:
+                insuranceSubscriptions_json:
+                  value:
+                  -
+                    id: 1
+                    customerId: A string
+                    productId: A string
+                    terminalProductId: A string
+          description: Get list of insuranceSubscriptions
+      operationId: GetInsuranceSubscription
+      summary: Get list of insuranceSubscriptions
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InsuranceSubscription'
+            examples:
+              1:
+                value:
+                  id: 1
+                  customerId: A string
+                  productId: A string
+                  terminalProductId: A string
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InsuranceSubscription'
+              examples:
+                1:
+                  value:
+                    id: 1
+                    customerId: A string
+                    productId: A string
+                    terminalProductId: A string
+          description: Changed InsuranceSubscription
+      operationId: Post InsuranceSubscription
+      summary: Post InsuranceSubscription        
+  /insuranceSubscriptions/{id}:
+    summary: Specific operation on insuranceSubscriptions
+    get:
+      parameters:
+      - examples:
+          1:
+            value: 1
+        name: id
+        description: InsuranceSubscription name
+        schema:
+          type: integer
+        in: path
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InsuranceSubscription'
+              examples:
+                1:
+                  value:
+                    id: 1
+                    customerId: A string
+                    productId: A string
+                    terminalProductId: A string
+          description: insuranceSubscriptions with specified id
+      operationId: GetInsuranceSubscriptionById
+      summary: Get InsuranceSubscription by id
+      description: Get InsuranceSubscription by id
+    patch:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InsuranceSubscription'
+            examples:
+              1:
+                value:
+                  id: 1
+                  customerId: A string
+                  productId: A string
+                  terminalProductId: A string
+        required: true
+      parameters:
+      - examples:
+          1:
+            value: 1
+        name: id
+        description: InsuranceSubscription name
+        schema:
+          type: integer
+        in: path
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InsuranceSubscription'
+              examples:
+                1:
+                  value:
+                    id: 1
+                    customerId: A string
+                    productId: A string
+                    terminalProductId: A string
+          description: Changed InsuranceSubscription
+      operationId: PatchInsuranceSubscription
+      summary: Patch existing InsuranceSubscription
+    parameters:
+    - name: id
+      description: InsuranceSubscription id
+      schema:
+        type: integer
+      in: path
+      required: true
+components:
+  schemas:
+    InsuranceSubscription:
+      title: Root Type for InsuranceSubscription
+      description: The root of the InsuranceSubscription type's schema.
+      type: object
+      properties:
+        id:
+          description: id of this InsuranceSubscription
+          type: integer
+        customerId:
+          description: customerId of this InsuranceSubscription
+          type: string
+        productId:
+          description: productId of this InsuranceSubscription
+          type: string
+        terminalProductId:
+          description: terminalProductId of this InsuranceSubscription
+          type: string
+tags:
+  - name: InsuranceSubscription
+    description: InsuranceSubscription resource

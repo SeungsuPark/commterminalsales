@@ -1,3 +1,4 @@
+
 package commterminalsales.external;
 
 import org.springframework.cloud.openfeign.FeignClient;

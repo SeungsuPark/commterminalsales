@@ -1,0 +1,157 @@
+openapi: 3.0.2
+info:
+  title: Customer
+  version: 0.0.1
+  description: API definition of customer
+  contact:
+    name: creator's name
+    url: http://creator.homepage.address
+    email: creator@creator.com
+  license:
+    name: MIT License
+    url: https://opensource.org/licenses/MIT
+paths:
+  /customers:
+    summary: Global operations on customers
+    get:
+      tags:
+      - customers
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Customer'
+              examples:
+                customers_json:
+                  value:
+                  -
+                    id: A string
+                    region: A string
+                    gender: A string
+          description: Get list of customers
+      operationId: GetCustomer
+      summary: Get list of customers
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Customer'
+            examples:
+              1:
+                value:
+                  id: A string
+                  region: A string
+                  gender: A string
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Customer'
+              examples:
+                1:
+                  value:
+                    id: A string
+                    region: A string
+                    gender: A string
+          description: Changed Customer
+      operationId: Post Customer
+      summary: Post Customer        
+  /customers/{id}:
+    summary: Specific operation on customers
+    get:
+      parameters:
+      - examples:
+          A string:
+            value: A string
+        name: id
+        description: Customer name
+        schema:
+          type: string
+        in: path
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Customer'
+              examples:
+                1:
+                  value:
+                    id: A string
+                    region: A string
+                    gender: A string
+          description: customers with specified id
+      operationId: GetCustomerById
+      summary: Get Customer by id
+      description: Get Customer by id
+    patch:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Customer'
+            examples:
+              1:
+                value:
+                  id: A string
+                  region: A string
+                  gender: A string
+        required: true
+      parameters:
+      - examples:
+          1:
+            value: 1
+        name: id
+        description: Customer name
+        schema:
+          type: string
+        in: path
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Customer'
+              examples:
+                1:
+                  value:
+                    id: A string
+                    region: A string
+                    gender: A string
+          description: Changed Customer
+      operationId: PatchCustomer
+      summary: Patch existing Customer
+    parameters:
+    - name: id
+      description: Customer id
+      schema:
+        type: string
+      in: path
+      required: true
+components:
+  schemas:
+    Customer:
+      title: Root Type for Customer
+      description: The root of the Customer type's schema.
+      type: object
+      properties:
+        id:
+          description: id of this Customer
+          type: string
+        region:
+          description: region of this Customer
+          type: string
+        gender:
+          description: gender of this Customer
+          type: string
+tags:
+  - name: Customer
+    description: Customer resource
