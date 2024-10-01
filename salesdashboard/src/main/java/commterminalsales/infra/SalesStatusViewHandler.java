@@ -2,6 +2,10 @@ package commterminalsales.infra;
 
 import commterminalsales.config.kafka.KafkaProcessor;
 import commterminalsales.domain.*;
+import commterminalsales.external.SpecService;
+import commterminalsales.external.GetSpecDetailQuery;
+import commterminalsales.external.Spec;
+
 import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
@@ -16,6 +20,9 @@ public class SalesStatusViewHandler {
     //<<< DDD / CQRS
     @Autowired
     private SalesStatusRepository salesStatusRepository;
+
+    @Autowired
+    private SpecService specService;
 
     @StreamListener(KafkaProcessor.INPUT)
     public void whenOrderPlaced_then_CREATE_1(
@@ -32,6 +39,14 @@ public class SalesStatusViewHandler {
             salesStatus.setInsurance(
                 Boolean.valueOf(orderPlaced.getInsuranceOption())
             );
+
+            GetSpecDetailQuery getSpecDetailQuery = new GetSpecDetailQuery();
+            getSpecDetailQuery.setId(orderPlaced.getProductId());
+            Spec spec = specService.getSpecDetail(getSpecDetailQuery);
+
+            salesStatus.setManufacturer(spec.getManufacturer());
+            salesStatus.setPhoneColor(spec.getPhoneColor());
+
             // view 레파지 토리에 save
             salesStatusRepository.save(salesStatus);
         } catch (Exception e) {

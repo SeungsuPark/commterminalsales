@@ -13,7 +13,7 @@ import java.util.List;
  
 public interface CustomerService {
     @GetMapping(path="/customers/search/findByGetCustomer/{id}")
-    public Customer getCustomer(@PathVariableGetCustomerQuery getCustomerQuery);
+    public Customer getCustomer(@PathVariable GetCustomerQuery getCustomerQuery);
 
 }
 

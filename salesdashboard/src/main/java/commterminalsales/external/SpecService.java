@@ -12,7 +12,7 @@ import java.util.List;
  
 public interface SpecService {
     @GetMapping(path="/specs/search/findByGetSpecDetail/{id}")
-    public Spec getSpecDetail(@PathVariableGetSpecDetailQuery getSpecDetailQuery);
+    public Spec getSpecDetail(@PathVariable GetSpecDetailQuery getSpecDetailQuery);
 
 }
 
