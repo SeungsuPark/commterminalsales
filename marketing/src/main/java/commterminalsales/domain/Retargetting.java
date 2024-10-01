@@ -43,26 +43,28 @@ public class Retargetting {
     public static void 스펙재방문시타켓팅수치증가(SpecCompared specCompared) {
         //implement business logic here:
 
-        /** Example 1:  new item 
-        Retargetting retargetting = new Retargetting();
-        repository().save(retargetting);
-
-        DiscountPolicyActivated discountPolicyActivated = new DiscountPolicyActivated(retargetting);
-        discountPolicyActivated.publishAfterCommit();
-        */
-
-        /** Example 2:  finding and process
         
-        repository().findById(specCompared.get???()).ifPresent(retargetting->{
+        repository().findByCustomerId(specCompared.getCustomerId()).ifPresentOrElse(retargetting->{
             
-            retargetting // do something
+            retargetting.setReturnCount(retargetting.getReturnCount()+1);
+            
             repository().save(retargetting);
 
-            DiscountPolicyActivated discountPolicyActivated = new DiscountPolicyActivated(retargetting);
-            discountPolicyActivated.publishAfterCommit();
+            if(retargetting.getReturnCount() > 3){
+                DiscountPolicyActivated discountPolicyActivated = new DiscountPolicyActivated(retargetting);
+                discountPolicyActivated.publishAfterCommit();
 
+            }
+
+         }, ()->{
+            Retargetting retargetting = new Retargetting();
+            retargetting.setCustomerId(specCompared.getCustomerId());
+            retargetting.setReturnCount(1);
+            retargetting.setProductId(specCompared.getProductId());
+            repository().save(retargetting);
+           
          });
-        */
+        
 
     }
     //>>> Clean Arch / Port Method

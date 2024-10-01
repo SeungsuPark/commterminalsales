@@ -11,7 +11,7 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 //<<< PoEAA / Repository
 @RepositoryRestResource(collectionResourceRel="specs", path="specs")
-public interface SpecRepository extends PagingAndSortingRepository<Spec, >{
+public interface SpecRepository extends PagingAndSortingRepository<Spec, Long>{
     @Query(value = "select spec " +
         "from Spec spec " +
         "where(:id is null or spec.id like %:id%)")
