@@ -8,7 +8,7 @@ import java.util.Date;
 import java.util.List;
 
 
-@FeignClient(name = "spec", url = "${api.url.spec}")
+@FeignClient(name = "spec", url = "${api.url.spec}", fallback = SpecServiceImpl.class)
  
 public interface SpecService {
     @GetMapping(path="/specs/search/findByGetSpecDetail/{id}")
