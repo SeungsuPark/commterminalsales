@@ -40,9 +40,7 @@ public class SalesStatusViewHandler {
                 Boolean.valueOf(orderPlaced.getInsuranceOption())
             );
 
-            GetSpecDetailQuery getSpecDetailQuery = new GetSpecDetailQuery();
-            getSpecDetailQuery.setId(orderPlaced.getProductId());
-            Spec spec = specService.getSpecDetail(getSpecDetailQuery);
+            Spec spec = specService.getSpecDetail(orderPlaced.getProductId());
 
             salesStatus.setManufacturer(spec.getManufacturer());
             salesStatus.setPhoneColor(spec.getPhoneColor());

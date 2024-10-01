@@ -12,8 +12,8 @@ import java.util.List;
 @FeignClient(name = "customer", url = "${api.url.customer}")
  
 public interface CustomerService {
-    @GetMapping(path="/customers/search/findByGetCustomer/{id}")
-    public Customer getCustomer(@PathVariable GetCustomerQuery getCustomerQuery);
+    @GetMapping(path="/customers/{id}")
+    public Customer getCustomer(@PathVariable String id);
 
 }
 
