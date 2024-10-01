@@ -68,10 +68,10 @@
                 [
                     { text: "id", value: "id" },
                     { text: "spec", value: "spec" },
-                    { text: "manufacturer", value: "manufacturer" },
                     { text: "phoneColor", value: "phoneColor" },
                     { text: "phoneType", value: "phoneType" },
                     { text: "image", value: "image" },
+                    { text: "manufacturer", value: "manufacturer" },
                 ],
             spec : [],
             newValue: {},
@@ -90,10 +90,10 @@
 
             this.newValue = {
                 'spec': '',
-                'manufacturer': '',
                 'phoneColor': '',
                 'phoneType': '',
                 'image': {},
+                'manufacturer': '',
             }
         },
         methods: {

@@ -19,14 +19,15 @@ public class Spec {
 
     private String spec;
 
-    private String manufacturer;
-
     private String phoneColor;
 
     private String phoneType;
 
     @Embedded
     private Photo image;
+
+    @Embedded
+    private Manufacturer manufacturer;
 
     @PostPersist
     public void onPostPersist() {}

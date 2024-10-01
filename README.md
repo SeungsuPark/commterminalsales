@@ -39,7 +39,7 @@ mvn spring-boot:run
 - spec
 ```
  http :8088/specComparations id="id" productId="productId" options="options" customerId="customerId" 
- http :8088/specs id="id" spec="spec" manufacturer="manufacturer" phoneColor="phoneColor" phoneType="phoneType" image="image" 
+ http :8088/specs id="id" spec="spec" phoneColor="phoneColor" phoneType="phoneType" image="image" manufacturer="manufacturer" 
 ```
 - order
 ```

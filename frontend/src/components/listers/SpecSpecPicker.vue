@@ -18,9 +18,6 @@
                                 Spec :  {{item.spec }}
                             </v-list-item-subtitle>
                             <v-list-item-subtitle>
-                                Manufacturer :  {{item.manufacturer }}
-                            </v-list-item-subtitle>
-                            <v-list-item-subtitle>
                                 PhoneColor :  {{item.phoneColor }}
                             </v-list-item-subtitle>
                             <v-list-item-subtitle>
@@ -28,6 +25,9 @@
                             </v-list-item-subtitle>
                             <v-list-item-subtitle>
                                 Image :  {{item.image }}
+                            </v-list-item-subtitle>
+                            <v-list-item-subtitle>
+                                Manufacturer :  {{item.manufacturer }}
                             </v-list-item-subtitle>
                         </v-list-item-content>
 

@@ -37,10 +37,9 @@
             style="margin-top:10px; max-height:65vh;"
             class="wj-felx-grid"
         >
-            <wj-flex-grid-filter :filterColumns="['RowHeader','spec','manufacturer','phoneColor','phoneType','image',]" />
+            <wj-flex-grid-filter :filterColumns="['RowHeader','spec','phoneColor','phoneType','image','manufacturer',]" />
             <wj-flex-grid-cell-template cellType="RowHeader" v-slot="cell">{{cell.row.index + 1}}</wj-flex-grid-cell-template>
             <wj-flex-grid-column binding="spec" header="Spec" width="2*" :isReadOnly="true" align="center" />
-            <wj-flex-grid-column binding="manufacturer" header="Manufacturer" width="2*" :isReadOnly="true" align="center" />
             <wj-flex-grid-column binding="phoneColor" header="PhoneColor" width="2*" :isReadOnly="true" align="center" />
             <wj-flex-grid-column binding="phoneType" header="PhoneType" width="2*" :isReadOnly="true" align="center" />
             <wj-flex-grid-column binding="image" header="Image" width="2*" :isReadOnly="true" align="center">
@@ -48,6 +47,7 @@
                     <Photo v-model="cell.item.image" :editMode="editMode"></Photo>
                 </wj-flex-grid-cell-template>
             </wj-flex-grid-column>
+            <wj-flex-grid-column binding="manufacturer" header="Manufacturer" width="2*" :isReadOnly="true" align="center" />
         </wj-flex-grid>
         <v-col>
             <v-dialog
