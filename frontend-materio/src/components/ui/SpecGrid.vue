@@ -27,22 +27,22 @@
                         <tr>
                         <th>Id</th>
                         <th>Spec</th>
-                        <th>Manufacturer</th>
                         <th>PhoneColor</th>
                         <th>PhoneType</th>
                         <th>Image</th>
+                        <th>Manufacturer</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr v-for="(val, idx) in value" :key="val" @click="changeSelectedRow(val)" :style="val === selectedRow ? 'background-color: #f0f3ff;':''">
                             <td class="font-semibold">{{ idx + 1 }}</td>
                             <td class="whitespace-nowrap" label="Spec">{{ val.spec }}</td>
-                            <td class="whitespace-nowrap" label="Manufacturer">{{ val.manufacturer }}</td>
                             <td class="whitespace-nowrap" label="PhoneColor">{{ val.phoneColor }}</td>
                             <td class="whitespace-nowrap" label="PhoneType">{{ val.phoneType }}</td>
                             <td class="whitespace-nowrap" label="Image">
                                 <Photo :editMode="false" :inList="true" v-model="val.image"></Photo>
                             </td>
+                            <td class="whitespace-nowrap" label="Manufacturer">{{ val.manufacturer }}</td>
                             <Icon style="margin-top: 15px;" icon="mi:delete" @click="deleteRow(val)" />
                         </tr>
                     </tbody>
@@ -102,10 +102,10 @@
                     <v-card-text>
                         <div>
                             <String label="Spec" v-model="selectedRow.spec" :editMode="true"/>
-                            <String label="Manufacturer" v-model="selectedRow.manufacturer" :editMode="true"/>
                             <String label="PhoneColor" v-model="selectedRow.phoneColor" :editMode="true"/>
                             <String label="PhoneType" v-model="selectedRow.phoneType" :editMode="true"/>
                             <Photo offline label="Image" v-model="selectedRow.image" :editMode="true"/>
+                            <Manufacturer offline label="Manufacturer" v-model="selectedRow.manufacturer" :editMode="true"/>
                             <v-divider class="border-opacity-100 my-divider"></v-divider>
                             <v-layout row justify-end>
                                 <v-btn
@@ -131,6 +131,7 @@ import BaseGrid from '../base-ui/BaseGrid.vue'
 import Spec from '../Spec.vue'
 import String from '../primitives/String.vue'
 import Photo from '../vo/Photo.vue'
+import Manufacturer from '../Manufacturer.vue'
 import GetSpecDetail from '../GetSpecDetail.vue'
 
 export default {
@@ -140,6 +141,7 @@ export default {
         Spec,
         String,
         Photo,
+        Manufacturer,
         GetSpecDetail,
     },
     data: () => ({

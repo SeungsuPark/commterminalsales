@@ -9,15 +9,13 @@
                 <String label="Spec" v-model="item.spec" :editMode="editMode" @change="change" />
             </div>
             <div>
-                <String label="Manufacturer" v-model="item.manufacturer" :editMode="editMode" @change="change" />
-            </div>
-            <div>
                 <String label="PhoneColor" v-model="item.phoneColor" :editMode="editMode" @change="change" />
             </div>
             <div>
                 <String label="PhoneType" v-model="item.phoneType" :editMode="editMode" @change="change" />
             </div>
             <Photo offline label="Image" v-model="item.image" :editMode="false" @change="change" />
+            <Manufacturer offline label="Manufacturer" v-model="item.manufacturer" :editMode="false" :key="false" @change="change" />
         </v-card-text>
 
         <v-card-actions>

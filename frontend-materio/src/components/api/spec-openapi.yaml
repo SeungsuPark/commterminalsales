@@ -30,10 +30,10 @@ paths:
                   value:
                     - id: 1
                       spec: A string
-                      manufacturer: A string
                       phoneColor: A string
                       phoneType: A string
                       image: value
+                      manufacturer: value
           description: Get list of specs
       operationId: GetSpec
       summary: Get list of specs
@@ -48,10 +48,10 @@ paths:
                 value:
                   id: 1
                   spec: A string
-                  manufacturer: A string
                   phoneColor: A string
                   phoneType: A string
                   image: value
+                  manufacturer: value
         required: true
       responses:
         '200':
@@ -64,10 +64,10 @@ paths:
                   value:
                     id: 1
                     spec: A string
-                    manufacturer: A string
                     phoneColor: A string
                     phoneType: A string
                     image: value
+                    manufacturer: value
           description: Changed Spec
       operationId: Post Spec
       summary: Post Spec
@@ -95,10 +95,10 @@ paths:
                   value:
                     id: 1
                     spec: A string
-                    manufacturer: A string
                     phoneColor: A string
                     phoneType: A string
                     image: value
+                    manufacturer: value
           description: specs with specified id
       operationId: GetSpecById
       summary: Get Spec by id
@@ -114,10 +114,10 @@ paths:
                 value:
                   id: 1
                   spec: A string
-                  manufacturer: A string
                   phoneColor: A string
                   phoneType: A string
                   image: value
+                  manufacturer: value
         required: true
       parameters:
         - examples:
@@ -140,10 +140,10 @@ paths:
                   value:
                     id: 1
                     spec: A string
-                    manufacturer: A string
                     phoneColor: A string
                     phoneType: A string
                     image: value
+                    manufacturer: value
           description: Changed Spec
       operationId: PatchSpec
       summary: Patch existing Spec
@@ -167,9 +167,6 @@ components:
         spec:
           description: spec of this Spec
           type: string
-        manufacturer:
-          description: manufacturer of this Spec
-          type: string
         phoneColor:
           description: phoneColor of this Spec
           type: string
@@ -178,6 +175,9 @@ components:
           type: string
         image:
           description: image of this Spec
+          type: string
+        manufacturer:
+          description: manufacturer of this Spec
           type: string
 tags:
   - name: Spec

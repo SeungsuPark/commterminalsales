@@ -105,10 +105,10 @@
             
             me.newValue = {
                 'spec': '',
-                'manufacturer': '',
                 'phoneColor': '',
                 'phoneType': '',
                 'image': {},
+                'manufacturer': '',
             }
         },
         methods:{

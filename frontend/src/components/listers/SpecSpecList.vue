@@ -51,10 +51,10 @@
                         <v-list-item-subtitle style="font-size:25px; font-weight:700;">
                             [ Id :  {{data.id }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             [ Spec :  {{data.spec }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            [ Manufacturer :  {{data.manufacturer }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             [ PhoneColor :  {{data.phoneColor }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             [ PhoneType :  {{data.phoneType }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             [ Image :  {{data.image }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            [ Manufacturer :  {{data.manufacturer }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </v-list-item-subtitle>
 
                     </v-list-item-content>
@@ -123,10 +123,10 @@
             
             this.newValue = {
                 'spec': '',
-                'manufacturer': '',
                 'phoneColor': '',
                 'phoneType': '',
                 'image': {},
+                'manufacturer': '',
             }
         },
         methods: {
