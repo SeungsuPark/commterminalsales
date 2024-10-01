@@ -8,7 +8,7 @@ import java.util.List;
 
 @Service
 public class SpecServiceImpl implements SpecService {
-    public Spec getSpecDetail( id){
+    public Spec getSpecDetail(GetSpecDetailQuery id){
         Spec spec = new Spec();
         
         return spec;
