@@ -1,0 +1,166 @@
+---
+openapi: 3.0.2
+info:
+  title: SpecComparation
+  version: 0.0.1
+  description: API definition of specComparation
+  contact:
+    name: creator's name
+    url: 'http://creator.homepage.address'
+    email: creator@creator.com
+  license:
+    name: MIT License
+    url: 'https://opensource.org/licenses/MIT'
+paths:
+  /specComparations:
+    summary: Global operations on specComparations
+    get:
+      tags:
+        - specComparations
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/SpecComparation'
+              examples:
+                specComparations_json:
+                  value:
+                    - id: 1
+                      productId: A string
+                      options: value
+                      customerId: A string
+          description: Get list of specComparations
+      operationId: GetSpecComparation
+      summary: Get list of specComparations
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SpecComparation'
+            examples:
+              '1':
+                value:
+                  id: 1
+                  productId: A string
+                  options: value
+                  customerId: A string
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SpecComparation'
+              examples:
+                '1':
+                  value:
+                    id: 1
+                    productId: A string
+                    options: value
+                    customerId: A string
+          description: Changed SpecComparation
+      operationId: Post SpecComparation
+      summary: Post SpecComparation
+  '/specComparations/{id}':
+    summary: Specific operation on specComparations
+    get:
+      parameters:
+        - examples:
+            '1':
+              value: 1
+          name: id
+          description: SpecComparation name
+          schema:
+            type: integer
+          in: path
+          required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SpecComparation'
+              examples:
+                '1':
+                  value:
+                    id: 1
+                    productId: A string
+                    options: value
+                    customerId: A string
+          description: specComparations with specified id
+      operationId: GetSpecComparationById
+      summary: Get SpecComparation by id
+      description: Get SpecComparation by id
+    patch:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SpecComparation'
+            examples:
+              '1':
+                value:
+                  id: 1
+                  productId: A string
+                  options: value
+                  customerId: A string
+        required: true
+      parameters:
+        - examples:
+            '1':
+              value: 1
+          name: id
+          description: SpecComparation name
+          schema:
+            type: integer
+          in: path
+          required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SpecComparation'
+              examples:
+                '1':
+                  value:
+                    id: 1
+                    productId: A string
+                    options: value
+                    customerId: A string
+          description: Changed SpecComparation
+      operationId: PatchSpecComparation
+      summary: Patch existing SpecComparation
+    parameters:
+      - name: id
+        description: SpecComparation id
+        schema:
+          type: integer
+        in: path
+        required: true
+components:
+  schemas:
+    SpecComparation:
+      title: Root Type for SpecComparation
+      description: The root of the SpecComparation type's schema.
+      type: object
+      properties:
+        id:
+          description: id of this SpecComparation
+          type: integer
+        productId:
+          description: productId of this SpecComparation
+          type: string
+        options:
+          description: options of this SpecComparation
+          type: string
+        customerId:
+          description: customerId of this SpecComparation
+          type: string
+tags:
+  - name: SpecComparation
+    description: SpecComparation resource

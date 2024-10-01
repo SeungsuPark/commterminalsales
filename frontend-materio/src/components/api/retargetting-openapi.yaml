@@ -1,0 +1,166 @@
+openapi: 3.0.2
+info:
+  title: Retargetting
+  version: 0.0.1
+  description: API definition of retargetting
+  contact:
+    name: creator's name
+    url: http://creator.homepage.address
+    email: creator@creator.com
+  license:
+    name: MIT License
+    url: https://opensource.org/licenses/MIT
+paths:
+  /retargettings:
+    summary: Global operations on retargettings
+    get:
+      tags:
+      - retargettings
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Retargetting'
+              examples:
+                retargettings_json:
+                  value:
+                  -
+                    id: 1
+                    customerId: A string
+                    productId: A string
+                    returnCount: 1
+          description: Get list of retargettings
+      operationId: GetRetargetting
+      summary: Get list of retargettings
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Retargetting'
+            examples:
+              1:
+                value:
+                  id: 1
+                  customerId: A string
+                  productId: A string
+                  returnCount: 1
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Retargetting'
+              examples:
+                1:
+                  value:
+                    id: 1
+                    customerId: A string
+                    productId: A string
+                    returnCount: 1
+          description: Changed Retargetting
+      operationId: Post Retargetting
+      summary: Post Retargetting        
+  /retargettings/{id}:
+    summary: Specific operation on retargettings
+    get:
+      parameters:
+      - examples:
+          1:
+            value: 1
+        name: id
+        description: Retargetting name
+        schema:
+          type: integer
+        in: path
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Retargetting'
+              examples:
+                1:
+                  value:
+                    id: 1
+                    customerId: A string
+                    productId: A string
+                    returnCount: 1
+          description: retargettings with specified id
+      operationId: GetRetargettingById
+      summary: Get Retargetting by id
+      description: Get Retargetting by id
+    patch:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Retargetting'
+            examples:
+              1:
+                value:
+                  id: 1
+                  customerId: A string
+                  productId: A string
+                  returnCount: 1
+        required: true
+      parameters:
+      - examples:
+          1:
+            value: 1
+        name: id
+        description: Retargetting name
+        schema:
+          type: integer
+        in: path
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Retargetting'
+              examples:
+                1:
+                  value:
+                    id: 1
+                    customerId: A string
+                    productId: A string
+                    returnCount: 1
+          description: Changed Retargetting
+      operationId: PatchRetargetting
+      summary: Patch existing Retargetting
+    parameters:
+    - name: id
+      description: Retargetting id
+      schema:
+        type: integer
+      in: path
+      required: true
+components:
+  schemas:
+    Retargetting:
+      title: Root Type for Retargetting
+      description: The root of the Retargetting type's schema.
+      type: object
+      properties:
+        id:
+          description: id of this Retargetting
+          type: integer
+        customerId:
+          description: customerId of this Retargetting
+          type: string
+        productId:
+          description: productId of this Retargetting
+          type: string
+        returnCount:
+          description: returnCount of this Retargetting
+          type: integer
+tags:
+  - name: Retargetting
+    description: Retargetting resource

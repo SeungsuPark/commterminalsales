@@ -1,0 +1,175 @@
+openapi: 3.0.2
+info:
+  title: Payment
+  version: 0.0.1
+  description: API definition of payment
+  contact:
+    name: creator's name
+    url: http://creator.homepage.address
+    email: creator@creator.com
+  license:
+    name: MIT License
+    url: https://opensource.org/licenses/MIT
+paths:
+  /payments:
+    summary: Global operations on payments
+    get:
+      tags:
+      - payments
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Payment'
+              examples:
+                payments_json:
+                  value:
+                  -
+                    id: 1
+                    amount: 1.1
+                    product: A string
+                    customerId: A string
+                    paymentMethod: A string
+          description: Get list of payments
+      operationId: GetPayment
+      summary: Get list of payments
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Payment'
+            examples:
+              1:
+                value:
+                  id: 1
+                  amount: 1.1
+                  product: A string
+                  customerId: A string
+                  paymentMethod: A string
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Payment'
+              examples:
+                1:
+                  value:
+                    id: 1
+                    amount: 1.1
+                    product: A string
+                    customerId: A string
+                    paymentMethod: A string
+          description: Changed Payment
+      operationId: Post Payment
+      summary: Post Payment        
+  /payments/{id}:
+    summary: Specific operation on payments
+    get:
+      parameters:
+      - examples:
+          1:
+            value: 1
+        name: id
+        description: Payment name
+        schema:
+          type: integer
+        in: path
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Payment'
+              examples:
+                1:
+                  value:
+                    id: 1
+                    amount: 1.1
+                    product: A string
+                    customerId: A string
+                    paymentMethod: A string
+          description: payments with specified id
+      operationId: GetPaymentById
+      summary: Get Payment by id
+      description: Get Payment by id
+    patch:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Payment'
+            examples:
+              1:
+                value:
+                  id: 1
+                  amount: 1.1
+                  product: A string
+                  customerId: A string
+                  paymentMethod: A string
+        required: true
+      parameters:
+      - examples:
+          1:
+            value: 1
+        name: id
+        description: Payment name
+        schema:
+          type: integer
+        in: path
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Payment'
+              examples:
+                1:
+                  value:
+                    id: 1
+                    amount: 1.1
+                    product: A string
+                    customerId: A string
+                    paymentMethod: A string
+          description: Changed Payment
+      operationId: PatchPayment
+      summary: Patch existing Payment
+    parameters:
+    - name: id
+      description: Payment id
+      schema:
+        type: integer
+      in: path
+      required: true
+components:
+  schemas:
+    Payment:
+      title: Root Type for Payment
+      description: The root of the Payment type's schema.
+      type: object
+      properties:
+        id:
+          description: id of this Payment
+          type: integer
+        amount:
+          description: amount of this Payment
+          type: number
+        product:
+          description: product of this Payment
+          type: string
+        customerId:
+          description: customerId of this Payment
+          type: string
+        paymentMethod:
+          description: paymentMethod of this Payment
+          type: string
+tags:
+  - name: Payment
+    description: Payment resource
