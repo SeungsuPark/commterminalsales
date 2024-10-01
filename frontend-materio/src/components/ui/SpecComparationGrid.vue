@@ -123,7 +123,6 @@ import { useTheme } from 'vuetify';
 import BaseGrid from '../base-ui/BaseGrid.vue'
 import SpecComparation from '../SpecComparation.vue'
 import String from '../primitives/String.vue'
-import  from '../primitives/.vue'
 import StringDetailGrid from './StringDetailGrid.vue'
 
 export default {
@@ -132,7 +131,6 @@ export default {
     components:{
         SpecComparation,
         String,
-        ,
         StringDetailGrid,
     },
     data: () => ({
