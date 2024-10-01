@@ -95,6 +95,28 @@
 
 
 
+                    <v-list-item
+                        class="px-2"
+                        key="customers"
+                        to="/customers/customers"
+                        @click="changeUrl()"
+                        color="primary"
+                        style="font-weight:700;"
+                    >
+                        Customer
+                    </v-list-item>
+
+                    <v-list-item
+                        class="px-2"
+                        key="messages"
+                        to="/customers/messages"
+                        @click="changeUrl()"
+                        color="primary"
+                        style="font-weight:700;"
+                    >
+                        Message
+                    </v-list-item>
+
 
                 </v-list>
             </v-navigation-drawer>
@@ -207,6 +229,20 @@ export default {
                 description: '', 
                 key: 'payments', 
                 route: '/payments/payments',
+                ImageUrl: '',
+            },
+            { 
+                title: 'Customer', 
+                description: '', 
+                key: 'customers', 
+                route: '/customers/customers',
+                ImageUrl: '',
+            },
+            { 
+                title: 'Message', 
+                description: '', 
+                key: 'messages', 
+                route: '/customers/messages',
                 ImageUrl: '',
             },
             

@@ -29,6 +29,9 @@ public class SalesStatusViewHandler {
             // view 객체에 이벤트의 Value 를 set 함
             salesStatus.setProductId(orderPlaced.getProductId());
             salesStatus.setOrderId(orderPlaced.getId());
+            salesStatus.setInsurance(
+                Boolean.valueOf(orderPlaced.getInsuranceOption())
+            );
             // view 레파지 토리에 save
             salesStatusRepository.save(salesStatus);
         } catch (Exception e) {

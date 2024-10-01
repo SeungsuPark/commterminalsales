@@ -22,7 +22,6 @@
         data: () => ({
             headers: [
                 { text: "orderId", value: "orderId" },
-                { text: "count", value: "count" },
                 { text: "productId", value: "productId" },
                 { text: "customerGender", value: "customerGender" },
                 { text: "customerRegion", value: "customerRegion" },

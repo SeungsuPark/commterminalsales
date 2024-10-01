@@ -61,6 +61,8 @@ mvn spring-boot:run
 ```
 - customer
 ```
+ http :8088/customers id="id" region="region" gender="gender" 
+ http :8088/messages id="id" message="message" customerId="customerId" 
 ```
 
 

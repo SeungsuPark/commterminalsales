@@ -16,7 +16,6 @@ public class SalesStatus {
     //@GeneratedValue(strategy=GenerationType.AUTO)
     private Long orderId;
 
-    private Long count;
     private String productId;
     private Boolean customerGender;
     private String customerRegion;

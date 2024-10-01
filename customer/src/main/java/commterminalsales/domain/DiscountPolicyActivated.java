@@ -7,12 +7,9 @@ import lombok.*;
 
 @Data
 @ToString
-public class OrderPlaced extends AbstractEvent {
+public class DiscountPolicyActivated extends AbstractEvent {
 
     private Long id;
-    private String productId;
-    private Object options;
     private String customerId;
-    private String address;
-    private String insuranceOption;
+    private String productId;
 }
