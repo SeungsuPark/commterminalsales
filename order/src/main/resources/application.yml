@@ -4,73 +4,21 @@ server:
 spring:
   application:
     name: order
-
-## 주문은 product 정보가 필요하다.
-## checkStock 를 true 로 준다면, product 서비스가 죽어있을때는 주문이 안된다.
-checkStock: true
 ---
 
 spring:
   profiles: default
-  cloud:
-    stream:
-      kafka:
-        binder:
-          brokers: localhost:9092
-        streams:
-          binder:
-              default:
-                key:
-                  serde: org.apache.kafka.common.serialization.Serdes$StringSerde
-                value:
-                  serde: org.apache.kafka.common.serialization.Serdes$StringSerde
-      bindings:
-        event-in:
-          group: orders
-          destination: eventTopic
-          contentType: application/json
-        event-out:
-          destination: eventTopic
-          contentType: application/json
   jpa:
     properties:
       hibernate:
         show_sql: true
         format_sql: true
-logging:
-  level:
-    org:
-      hibernate:
-        SQL: DEBUG
-        type:
-          descriptor:
-            sql:
-              BasicBinder: TRACE
-#logging:
-#  level:
-#    org.hibernate.type: trace
-#    org.springframework.cloud: debug
-
-api:
-  url:
-    insuranceSubscription: http://localhost:8085payment: http://localhost:8086salesdashboard: http://localhost:8087
-
-server:
-  port: 8083
----
-
-spring:
-  profiles: docker
-#  sleuth:
-#    sampler:
-#      probability: 1
-#    web:
-#      skipPattern: (^cleanup.*|.+favicon.*)
+        implicit_naming_strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyComponentPathImpl
   cloud:
     stream:
       kafka:
         binder:
-          brokers: my-kafka.kafka.svc.cluster.local:9092
+          brokers: localhost:9092
         streams:
           binder:
             configuration:
@@ -81,12 +29,56 @@ spring:
                   serde: org.apache.kafka.common.serialization.Serdes$StringSerde
       bindings:
         event-in:
-          group: orders
-          destination: eventTopicDocker
+          group: order
+#<<< EDA / Topic Name
+          destination: commterminalsales
+#>>> EDA / Topic Name
           contentType: application/json
         event-out:
-          destination: eventTopicDocker
+#<<< EDA / Topic Name
+          destination: commterminalsales
+#>>> EDA / Topic Name
           contentType: application/json
-api:
-  url: 
-    insuranceSubscriptionpaymentsalesdashboard: http://localhost:8080
+
+logging:
+  level:
+    org.hibernate.type: trace
+    org.springframework.cloud: debug
+
+
+server:
+  port: 8083
+
+---
+
+spring:
+  profiles: docker
+  jpa:
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+        implicit_naming_strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyComponentPathImpl
+  cloud:
+    stream:
+      kafka:
+        binder:
+          brokers: my-kafka:9092
+        streams:
+          binder:
+            configuration:
+              default:
+                key:
+                  serde: org.apache.kafka.common.serialization.Serdes$StringSerde
+                value:
+                  serde: org.apache.kafka.common.serialization.Serdes$StringSerde
+      bindings:
+        event-in:
+          group: order
+          destination: commterminalsales
+          contentType: application/json
+        event-out:
+          destination: commterminalsales
+          contentType: application/json
+
+
