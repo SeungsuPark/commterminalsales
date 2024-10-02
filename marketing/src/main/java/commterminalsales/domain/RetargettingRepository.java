@@ -1,9 +1,7 @@
 package commterminalsales.domain;
 
 import commterminalsales.domain.*;
-
 import java.util.Optional;
-
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
@@ -14,7 +12,5 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 )
 public interface RetargettingRepository
     extends PagingAndSortingRepository<Retargetting, Long> {
-
-
-        Optional<Retargetting> findByCustomerId(String customerId);
-    }
+    Optional<Retargetting> findByCustomerId(String customerId);
+}

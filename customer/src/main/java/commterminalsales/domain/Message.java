@@ -32,11 +32,22 @@ public class Message {
     public static void alert(DiscountPolicyActivated discountPolicyActivated) {
         //implement business logic here:
 
-        /** Example 1:  new item         */
+        /** Example 1:  new item 
         Message message = new Message();
-        message.setCustomerId(discountPolicyActivated.getCustomerId());
-        message.setMessage("할인쿠폰이 발행되었습니다.");
         repository().save(message);
+
+        */
+
+        /** Example 2:  finding and process
+        
+        repository().findById(discountPolicyActivated.get???()).ifPresent(message->{
+            
+            message // do something
+            repository().save(message);
+
+
+         });
+        */
 
     }
     //>>> Clean Arch / Port Method

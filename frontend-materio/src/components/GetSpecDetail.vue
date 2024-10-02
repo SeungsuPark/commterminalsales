@@ -6,9 +6,6 @@
     
         <v-card-text style="margin-top:-10px;">
             <v-row no-gutters style="margin: 15px 0px -10px -15px;">
-                <v-col style="max-width:140px;">
-                    <String class="attributes-list" label="Id" v-model="value.parameters.id" :editMode="editMode"/>
-                </v-col>
                 <v-col>
                     <v-btn class="gs-query-search-btn contrast-primary-text"
                         @click="search"
@@ -25,11 +22,9 @@
 </template>
 
 <script>
-import String from './primitives/String.vue'
     export default {
         name: 'GetSpecDetail',
         components:{
-            String,
         },
         props: {},
         data: () => ({

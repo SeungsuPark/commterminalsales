@@ -45,9 +45,27 @@ public class Payment {
     public static void pg에결제요청(OrderPlaced orderPlaced) {
         //implement business logic here:
 
-        System.out.println("PG 결재 요청");
+        /** Example 1:  new item 
+        Payment payment = new Payment();
+        repository().save(payment);
 
-        if(Math.random() > 0.6) throw new RuntimeException("PG 연동 실패");
+        PaymentCreated paymentCreated = new PaymentCreated(payment);
+        paymentCreated.publishAfterCommit();
+        */
+
+        /** Example 2:  finding and process
+        
+        repository().findById(orderPlaced.get???()).ifPresent(payment->{
+            
+            payment // do something
+            repository().save(payment);
+
+            PaymentCreated paymentCreated = new PaymentCreated(payment);
+            paymentCreated.publishAfterCommit();
+
+         });
+        */
+
     }
     //>>> Clean Arch / Port Method
 

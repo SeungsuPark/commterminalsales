@@ -81,7 +81,11 @@ public class 스펙재방문시타켓팅수치증가Test {
         event.setProductId("P001");
         event.setOptions(new Object[] { "Option A", "Option B" });
 
-        ObjectMapper objectMapper = new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+        ObjectMapper objectMapper = new ObjectMapper()
+            .configure(
+                DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES,
+                false
+            );
         try {
             String msg = objectMapper.writeValueAsString(event);
 
@@ -109,7 +113,7 @@ public class 스펙재방문시타켓팅수치증가Test {
             assertNotNull("Resulted event must be published", receivedMessage);
 
             DiscountPolicyActivated outputEvent = objectMapper.readValue(
-                (String)receivedMessage.getPayload(),
+                (String) receivedMessage.getPayload(),
                 DiscountPolicyActivated.class
             );
 

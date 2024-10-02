@@ -8,40 +8,6 @@ spring:
 
 spring:
   profiles: default
-  cloud:
-    stream:
-      kafka:
-        binder:
-          brokers: localhost:9092
-        streams:
-          binder:
-              default:
-                key:
-                  serde: org.apache.kafka.common.serialization.Serdes$StringSerde
-                value:
-                  serde: org.apache.kafka.common.serialization.Serdes$StringSerde
-      bindings:
-        event-in:
-          group: customersmessages
-          destination: eventTopic
-          contentType: application/json
-        event-out:
-          destination: eventTopic
-          contentType: application/json
-
-logging:
-  level:
-    org.hibernate.type: trace
-    org.springframework.cloud: debug
-
-
-server:
-  port: 8089
-
----
-
-spring:
-  profiles: docker
   jpa:
     properties:
       hibernate:

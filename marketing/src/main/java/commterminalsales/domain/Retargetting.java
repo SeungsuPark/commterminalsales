@@ -11,7 +11,6 @@ import lombok.Data;
 @Entity
 @Table(name = "Retargetting_table")
 @Data
-//<<< DDD / Aggregate Root
 public class Retargetting {
 
     @Id
@@ -39,35 +38,30 @@ public class Retargetting {
         return retargettingRepository;
     }
 
-    //<<< Clean Arch / Port Method
     public static void 스펙재방문시타켓팅수치증가(SpecCompared specCompared) {
-        //implement business logic here:
+        repository()
+            .findByCustomerId(specCompared.getCustomerId())
+            .ifPresentOrElse(
+                retargetting -> {
+                    retargetting.setReturnCount(
+                        retargetting.getReturnCount() + 1
+                    );
+                    repository().save(retargetting);
 
-        
-        repository().findByCustomerId(specCompared.getCustomerId()).ifPresentOrElse(retargetting->{
-            
-            retargetting.setReturnCount(retargetting.getReturnCount()+1);
-            
-            repository().save(retargetting);
-
-            if(retargetting.getReturnCount() > 3){
-                DiscountPolicyActivated discountPolicyActivated = new DiscountPolicyActivated(retargetting);
-                discountPolicyActivated.publishAfterCommit();
-
-            }
-
-         }, ()->{
-            Retargetting retargetting = new Retargetting();
-            retargetting.setCustomerId(specCompared.getCustomerId());
-            retargetting.setReturnCount(1);
-            retargetting.setProductId(specCompared.getProductId());
-            repository().save(retargetting);
-           
-         });
-        
-
+                    if (retargetting.getReturnCount() > 3) {
+                        DiscountPolicyActivated discountPolicyActivated = new DiscountPolicyActivated(
+                            retargetting
+                        );
+                        discountPolicyActivated.publishAfterCommit();
+                    }
+                },
+                () -> {
+                    Retargetting retargetting = new Retargetting();
+                    retargetting.setCustomerId(specCompared.getCustomerId());
+                    retargetting.setReturnCount(1);
+                    retargetting.setProductId(specCompared.getProductId());
+                    repository().save(retargetting);
+                }
+            );
     }
-    //>>> Clean Arch / Port Method
-
 }
-//>>> DDD / Aggregate Root
