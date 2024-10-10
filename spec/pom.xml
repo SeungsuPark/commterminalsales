@@ -118,22 +118,7 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>
       </plugin>
-      <plugin>
-        <groupId>org.springframework.cloud</groupId>
-        <artifactId>spring-cloud-contract-maven-plugin</artifactId>
-        <version>${spring-cloud-contract.version}</version>
-        <extensions>true</extensions>
-        <configuration>
-          <packageWithBaseClasses>com.example.template</packageWithBaseClasses>
-          <baseClassMappings>
-            <baseClassMapping>
-              <contractPackageRegex>.*com.*</contractPackageRegex>
-              <baseClassFQN>com.example.template.MessagingBase</baseClassFQN>
-            </baseClassMapping>
-          </baseClassMappings>
-          <testMode>EXPLICIT</testMode>
-        </configuration>
-      </plugin>
+      
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
