@@ -8,7 +8,7 @@
         >
             <v-row>
                 <v-list-item class="d-flex" style="background-color: white;">
-                    <h1 class="align-self-center ml-3">Order</h1>
+                    <h1 class="align-self-center">Order</h1>
                     <div class="secondary-text-color" style="margin-left:30px;"></div>
                 </v-list-item>
             </v-row>
@@ -26,7 +26,7 @@
                             @add="append" v-if="tick"/>
 
                     <v-btn
-                            style="postition:absolute; top:2%; right:2%"
+                            style="position:absolute; top:2%; right:2%"
                             @click="closeDialog()"
                             depressed
                             icon 
@@ -39,7 +39,7 @@
                 <v-row>
                     <v-card
                         class="mx-auto"
-                        style="height:300px; width:300px; margin-bottom:20px; text-align: center;"
+                        style="height:300px; min-width:300px; margin-bottom:20px; text-align: center; padding: 20px;"
                         outlined
                     >
                         <v-list-item>
@@ -54,12 +54,11 @@
                         <v-card-actions>
                             <v-btn 
                                 v-on="on"
-                                class="mx-auto"
+                                class="mx-auto px-5"
                                 outlined
-                                rounded
                                 @click="openDialog=true;"
                                 color="primary"
-                                style="font-weight:500; font-size:20px; padding:15px; border:solid 2px; max-width:250px; overflow:hidden"
+                                x-large
                             >
                                 Order 등록
                             </v-btn>

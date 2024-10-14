@@ -34,7 +34,7 @@
                     <SpecSpecComparation :offline="offline" class="video-card" :isNew="true" :editMode="true" v-model="newValue" @add="append" v-if="tick"/>
                 
                     <v-btn
-                            style="postition:absolute; top:2%; right:2%"
+                            style="position:absolute; top:2%; right:2%"
                             @click="closeDialog()"
                             depressed 
                             icon 

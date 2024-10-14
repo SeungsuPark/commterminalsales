@@ -93,7 +93,7 @@
                                     rounded
                                     :to="card.link"
                                     @click="changeUrl()"
-                                    style="font-weight:500; font-size:20px; padding:15px; border:solid 2px; max-width:250px; overflow:hidden"
+                                    style="font-weight:500; font-size:20px; padding:15px; border:solid 2px;  overflow:hidden"
                                 >
                                     {{ card.text }}
                                 </v-btn>

@@ -15,7 +15,7 @@
             Order
         </v-card-title >        
 
-        <v-card-text style="background-color: white;">
+        <v-card-text style="background-color: white; margin-top: 30px;">
             <String label="ProductId" v-model="value.productId" :editMode="editMode" :inputUI="''"/>
             <String label="Options" v-model="value.options" :editMode="editMode" :inputUI="''"/>
             <String label="CustomerId" v-model="value.customerId" :editMode="editMode" :inputUI="''"/>
@@ -36,14 +36,14 @@
             <div v-else>
                 <v-btn
                     color="primary"
-                    text
+                    filled
                     @click="save"
                 >
                     PlaceOrder
                 </v-btn>
                 <v-btn
                     color="primary"
-                    text
+                    filled
                     @click="remove"
                     v-if="!editMode"
                 >
@@ -51,7 +51,7 @@
                 </v-btn>
                 <v-btn
                     color="primary"
-                    text
+                    filled
                     @click="editMode = false"
                     v-if="editMode && !isNew"
                 >

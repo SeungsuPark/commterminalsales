@@ -5,101 +5,112 @@
         <div>
             <v-app-bar color="primary" app clipped-left flat>
                 <v-toolbar-title>
-                    <span class="second-word font uppercase"
+                    <span class="second-word"
                         style="font-weight:700;"
                     >
                         <v-app-bar-nav-icon
                             @click="openSideBar()"
                             style="z-index:1;
-                            height:56px;
                             width:30px;
+                            height: 30px;
                             margin-right:10px;
+                            margin-top: -4px;
                             font-weight:300;
-                            font-size:55px;"
+                            font-size:33px;"
                         >
-                            <div style="line-height:100%;">≡</div>
+                            <div style="line-height:100%; color:#fff">≡</div>
                         </v-app-bar-nav-icon>
                     </span>
                 </v-toolbar-title>
-                <span v-if="urlPath!=null" 
+                <!-- <span v-if="urlPath!=null" 
                     class="mdi mdi-home" 
                     key="" 
                     to="/" 
                     @click="goHome()"
                     style="margin-left:10px; font-size:20px; cursor:pointer;"
 		        ></span> 
-                <v-spacer></v-spacer>
+                <v-spacer></v-spacer> -->
 
             </v-app-bar>
 
             <v-navigation-drawer app clipped flat v-model="sideBar">
-                <v-list>
+                <v-lis style="padding: 0px;">
                     <v-list-item
-                        class="px-2"
+                        class="px-5"
+                        key="home"
+                        to="/"
+                        @click="changeUrl()"
+                        color="primary"
+                        style="font-weight:700;border-bottom: 1px #ddd solid;"
+                    >
+                        Home
+                    </v-list-item>
+                    <v-list-item
+                        class="px-5"
                         key="specComparations"
                         to="/specs/specComparations"
                         @click="changeUrl()"
                         color="primary"
-                        style="font-weight:700;"
+                        style="font-weight:700;border-bottom: 1px #ddd solid;"
                     >
                         단말기 스펙 비교
                     </v-list-item>
 
                     <v-list-item
-                        class="px-2"
+                        class="px-5"
                         key="specs"
                         to="/specs/specs"
                         @click="changeUrl()"
                         color="primary"
-                        style="font-weight:700;"
+                        style="font-weight:700;border-bottom: 1px #ddd solid;"
                     >
                         단말기스펙
                     </v-list-item>
 
 
                     <v-list-item
-                        class="px-2"
+                        class="px-5"
                         key="orders"
                         to="/orders/orders"
                         @click="changeUrl()"
                         color="primary"
-                        style="font-weight:700;"
+                        style="font-weight:700;border-bottom: 1px #ddd solid;"
                     >
                         Order
                     </v-list-item>
 
 
                     <v-list-item
-                        class="px-2"
+                        class="px-5"
                         key="retargettings"
                         to="/marketings/retargettings"
                         @click="changeUrl()"
                         color="primary"
-                        style="font-weight:700;"
+                        style="font-weight:700;border-bottom: 1px #ddd solid;"
                     >
                         Retargetting
                     </v-list-item>
 
 
                     <v-list-item
-                        class="px-2"
+                        class="px-5"
                         key="insuranceSubscriptions"
                         to="/insurances/insuranceSubscriptions"
                         @click="changeUrl()"
                         color="primary"
-                        style="font-weight:700;"
+                        style="font-weight:700;border-bottom: 1px #ddd solid;"
                     >
                         InsuranceSubscription
                     </v-list-item>
 
 
                     <v-list-item
-                        class="px-2"
+                        class="px-5"
                         key="payments"
                         to="/payments/payments"
                         @click="changeUrl()"
                         color="primary"
-                        style="font-weight:700;"
+                        style="font-weight:700;border-bottom: 1px #ddd solid;"
                     >
                         Payment
                     </v-list-item>
@@ -107,41 +118,39 @@
 
 
                     <v-list-item
-                        class="px-2"
+                        class="px-5"
                         key="customers"
                         to="/customers/customers"
                         @click="changeUrl()"
                         color="primary"
-                        style="font-weight:700;"
+                        style="font-weight:700;border-bottom: 1px #ddd solid;"
                     >
                         Customer
                     </v-list-item>
 
                     <v-list-item
-                        class="px-2"
+                        class="px-5"
                         key="messages"
                         to="/customers/messages"
                         @click="changeUrl()"
                         color="primary"
-                        style="font-weight:700;"
+                        style="font-weight:700;border-bottom: 1px #ddd solid;"
                     >
                         Message
                     </v-list-item>
 
 
-                </v-list>
+                </v-lis>
             </v-navigation-drawer>
         </div>
 
         <v-main>
-            <v-container style="padding:0px;" v-if="urlPath" fluid>
+            <v-container style="padding:20px;" v-if="urlPath" fluid>
                 <router-view></router-view>
             </v-container>
-            <v-container style="padding:0px;" v-else fluid>
-                <div style="width:100%; margin:0px 0px 20px 0px; position: relative;">
-                    <v-img style="width:100%; height:300px;"
-                        src=""
-                    ></v-img>
+            <v-container style="padding:20px;" v-else fluid>
+                <div style="width:100%; margin:0px 0px 0px 0px; position: relative;">
+                    
                     <div class="App-main-text-overlap"></div>
                     <div class="App-sub-text-overlap"></div>
                 </div>
@@ -152,28 +161,29 @@
                             @mouseover="flipCard(index)"
                             @mouseleave="unflipCard(index)"
                             :class="{ 'is-flipped': flipped[index] }"
+                            
                         >
                             <div class="flip-card-inner">
-                                <div class="flip-card-front">
+                                <div class="flip-card-front" style="width:100%">
                                     <v-card
                                         class="mx-auto"
-                                        style="width:300px; min-height: 310px; margin-bottom:20px; text-align: center; border-radius: 10px;"
+                                        style="width:100%; min-height: 310px; margin-bottom:20px; text-align: center; border-radius: 10px;"
                                         outlined
                                     >
                                         <v-list-item style="padding:15px; margin:0px;">
                                             <v-img style="width:100%; height:120px; border-radius: 10px;" :src="aggregate.ImageUrl"></v-img>
                                         </v-list-item>
-                                        <div style="text-align: left; padding:10px 15px 15px 15px; margin-top:-10px;">
+                                        <div style="text-align: center; padding:10px 15px 15px 15px; margin-top:-10px;">
                                             <h2>{{ aggregate.title }}</h2>
                                             <div>{{ aggregate.description }}</div>
                                         </div>
                                     </v-card>
                                 </div>
-                                <div class="flip-card-back">
+                                <div class="flip-card-back"  style="width:100%">
                                     <v-card
                                         color="primary"
                                         class="mx-auto"
-                                        style="width:300px; min-height: 310px; margin-bottom:20px; text-align: center; border-radius: 10px;"
+                                        style="width:auto; min-height: 310px; margin-bottom:20px; text-align: center; border-radius: 10px;"
                                         outlined
                                         :key="aggregate.key"
                                         :to="aggregate.route"

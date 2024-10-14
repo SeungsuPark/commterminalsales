@@ -15,7 +15,7 @@
             Payment
         </v-card-title >        
 
-        <v-card-text style="background-color: white;">
+        <v-card-text style="background-color: white; margin-top: 30px;">
             <BigDecimal offline label="Amount" v-model="value.amount" :editMode="editMode" @change="change"/>
             <String label="Product" v-model="value.product" :editMode="editMode" :inputUI="''"/>
             <String label="CustomerId" v-model="value.customerId" :editMode="editMode" :inputUI="''"/>
@@ -35,14 +35,14 @@
             <div v-else>
                 <v-btn
                     color="primary"
-                    text
+                    filled
                     @click="save"
                 >
                 저장
                 </v-btn>
                 <v-btn
                     color="primary"
-                    text
+                    filled
                     @click="remove"
                     v-if="!editMode"
                 >
@@ -50,7 +50,7 @@
                 </v-btn>
                 <v-btn
                     color="primary"
-                    text
+                    filled
                     @click="editMode = false"
                     v-if="editMode && !isNew"
                 >

@@ -15,7 +15,7 @@
 }
 
 *{
-    font-family:  !important;
+    font-family: "Roboto","IBM Plex Sans KR", 'Noto Sans KR', sans-serif  !important;
 }
 
 
@@ -46,7 +46,7 @@
 /* 메인 페이지 카드 뒤집기 스타일 */
 .flip-card {
   perspective: 1000px !important;
-  width: 300px !important;
+  width: 100% !important;
   height: 300px !important;
 }
 .flip-card.is-flipped .flip-card-inner {

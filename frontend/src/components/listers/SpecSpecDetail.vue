@@ -23,7 +23,7 @@
             <v-spacer></v-spacer>
             <v-btn
                     color="primary"
-                    text
+                    filled
                     @click="edit"
                     v-if="!editMode"
             >
@@ -31,7 +31,7 @@
             </v-btn>
             <v-btn
                     color="primary"
-                    text
+                    filled
                     @click="save"
                     v-else
             >
@@ -39,7 +39,7 @@
             </v-btn>
             <v-btn
                     color="primary"
-                    text
+                    filled
                     @click="remove"
                     v-if="!editMode"
             >
@@ -47,7 +47,7 @@
             </v-btn>
             <v-btn
                     color="primary"
-                    text
+                    filled
                     @click="editMode = false"
                     v-if="editMode"
             >

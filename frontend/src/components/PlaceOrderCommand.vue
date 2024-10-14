@@ -11,7 +11,7 @@
             <v-spacer></v-spacer>
             <v-btn
                     color="primary"
-                    text
+                    filled
                     @click="placeOrder"
             >
                 PlaceOrder
@@ -19,7 +19,7 @@
             
             <v-btn
                     color="primary"
-                    text
+                    filled
                     @click="close"
             >
                 Close

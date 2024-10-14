@@ -15,7 +15,7 @@
             단말기스펙
         </v-card-title >        
 
-        <v-card-text style="background-color: white;">
+        <v-card-text style="background-color: white; margin-top: 30px;">
             <String label="Spec" v-model="value.spec" :editMode="editMode" :inputUI="''"/>
             <String label="PhoneColor" v-model="value.phoneColor" :editMode="editMode" :inputUI="''"/>
             <String label="PhoneType" v-model="value.phoneType" :editMode="editMode" :inputUI="''"/>
@@ -36,14 +36,14 @@
             <div v-else>
                 <v-btn
                     color="primary"
-                    text
+                    filled
                     @click="save"
                 >
                     스펙등록
                 </v-btn>
                 <v-btn
                     color="primary"
-                    text
+                    filled
                     @click="remove"
                     v-if="!editMode"
                 >
@@ -51,7 +51,7 @@
                 </v-btn>
                 <v-btn
                     color="primary"
-                    text
+                    filled
                     @click="editMode = false"
                     v-if="editMode && !isNew"
                 >
